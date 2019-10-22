@@ -41,3 +41,5 @@ Etape 4 : installation mécanique
 
 TODO: Mettre une photo
 
+### Installation de ROS
+Suivre l'installation de ROS Melodic comme expliqué [ici](http://wiki.ros.org/melodic/Installation/Ubuntu)
