@@ -11,7 +11,7 @@ Des premières consignes sont disponibles sur ce dépôt hébergé à l'UTC : [g
 
 Liste du matériel nécessaire pour installer les cartes Nvidia Jetson Nano sur les Turtlebot 3 : 
 - Carte Nvidia Jetson Nano : [Jetson Nano](https://www.generationrobots.com/fr/403351-kit-de-developpement-nvidia-jetson-nano.html)
-- Carte MicroSD de 16 Go minimum 
+- Carte MicroSD de 32 Go minimum 
 - Alimentation 5V 2A, non fourni dans le kit Jetson. Pour les tests sur table, il est possible de réutiliser l'alimentation de la Raspberry Pi3 qui fournit 2.5A sur 5V. Nous verrons par la suite comment fournir l'énergie nécessaire en embarqué. 
 - Module Wifi : la Jetson Nano ne dispose pas de Wifi nativement. Il est possible d'ajouter des [dongles USB Wifi](https://www.generationrobots.com/fr/401554-dongle-wifi-pour-brickpi.html) ou une [carte PCIe Wifi](https://www.amazon.fr/Coolwell-Waveshare-Wireless-Bluetooth-Connector/dp/B07VRKKLCM/ref=sr_1_7?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=wifi+jetson+nano&qid=1568723686&sr=8-7). 
 - une [caméra Raspberry Pi v2](https://www.generationrobots.com/fr/402231-module-camera-pi-noir-pour-raspberry-pi.html)
