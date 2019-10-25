@@ -44,8 +44,8 @@ TODO: Mettre une photo
 ## Installation logiciel
 
 ### Installation du système d'exploitation
-Suivre la procédure d'installation du système sur une carte microSD prédite [ici](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write)
-Attention, à la place de télécharger l'image proposée, on utilisera à la place [celui-ci](https://developer.download.nvidia.com/training/nano/dlinano_v1-0-0_image_20GB.zip)
+Suivre la procédure d'installation du système sur une carte microSD prédite [ici](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write).
+Attention, à la place de télécharger l'image proposée, on utilisera à la place [celui-ci](https://developer.download.nvidia.com/training/nano/dlinano_v1-0-0_image_20GB.zip).
 
 ### Installation de ROS
 Suivre l'installation de ROS Melodic comme expliqué [ici](http://wiki.ros.org/melodic/Installation/Ubuntu)
