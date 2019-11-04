@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robotbridge</name>
+  <version>0.0.1</version>
+  <description>Bridge package</description>
+  <maintainer email="stephane.bonnet@utc.fr">Stéphane Bonnet</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+</package>

@@ -1,0 +1,71 @@
+#!/usr/bin/env python2
+#coding: utf-8
+# Software License Agreement (MIT License)
+#
+import rospy
+import signal, os, select, threading
+from geometry_msgs.msg import Twist
+import json
+
+class PipeClient(threading.Thread):
+    def __init__(self, publisher):
+        super(PipeClient, self).__init__()
+        try:
+            os.mkfifo('/tmp/robotfifo')
+        except:
+            pass
+        
+        self.publisher = publisher
+
+    def run(self):
+        self.fifo = os.open('/tmp/robotfifo', os.O_RDONLY | os.O_NONBLOCK)
+
+        data = ''
+        while True:
+            inputs = [self.fifo]
+            inputs, outputs, exceptional = select.select(inputs, [], [], .5)
+            msg = Twist()
+            if inputs:
+                data = ''
+                while not data.endswith('}'):
+                    byte = os.read(self.fifo, 1)
+                    if not byte:
+                        os.close(self.fifo)
+                        self.fifo = os.open('/tmp/robotfifo', os.O_RDONLY | os.O_NONBLOCK)
+                        break
+                    else:
+                        data += byte
+                
+                if not data.endswith('}'):
+                    continue
+
+                try:
+                    setpoints = json.loads(data)    
+                    msg.linear.x = setpoints['linear']
+                    msg.angular.x = setpoints['angular']
+                    self.publisher.publish(msg)
+                except:
+                    pass
+
+            self.publisher.publish(msg)
+                
+def main():
+    rospy.init_node('robotbridge', anonymous=True)
+
+    send_topic_name = 'cmd_vel'
+    
+    rospy.loginfo(rospy.get_caller_id() + " Turtlebot bridge node starting.") 
+    pub = rospy.Publisher(send_topic_name, Twist, queue_size=10)
+
+    pipe_handler = PipeClient(pub)
+    pipe_handler.daemon = True
+    pipe_handler.start()
+
+    while not rospy.is_shutdown():
+        rospy.spin()
+
+if __name__ == '__main__':
+    try:
+        main()
+    except rospy.ROSInterruptException:
+        pass
