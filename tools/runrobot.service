@@ -1,0 +1,10 @@
+[Unit]
+Description=Démarrer le robot
+After=network.target
+Restart=on-abort
+
+[Service]
+ExecStart=/usr/local/bin/runrobot.sh
+
+[Install]
+WantedBy=default.target
