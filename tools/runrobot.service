@@ -4,6 +4,7 @@ After=network.target
 Restart=on-abort
 
 [Service]
+User=dlinano
 ExecStart=/usr/local/bin/runrobot.sh
 
 [Install]
