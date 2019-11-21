@@ -41,7 +41,7 @@ Etape 4 : installation mécanique
 
 TODO: Mettre une photo
 
-## Installation logiciel
+## Installation logicielle
 
 ### Installation et mise à jour du système d'exploitation
 Suivre la procédure d'installation du système sur une carte microSD prédite [ici](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write).
@@ -53,31 +53,32 @@ sudo date -s '31 OCT 2019 14:23:35'
 ```
 
 Si vous obtenez ce message : 
-`
+```
 dlinano@jetson-nano:~$ sudo apt dist-upgrade 
 E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
 E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
-`
+```
 désactiver les services systemd de mises à jour automatiques des paquets qui peuvent vous bloquer lors des appels **apt** : 
-`
+```
 sudo systemctl disable apt-daily.timer
 sudo systemctl disable apt-daily-upgrade.timer
 sudo systemctl stop apt-daily.timer
 sudo systemctl stop apt-daily-upgrade.timer
-`
+```
 Vous aurez peut-être besoin de tuer certains process à la main : 
-`ps aux 
+```
+ps aux 
 
 root      7106  0.0  0.0   1912   480 ?        Ss   05:42   0:00 /bin/sh /usr/lib/apt/apt.systemd.daily update
 root      7115  0.0  0.0   1912  1232 ?        S    05:42   0:00 /bin/sh /usr/lib/apt/apt.systemd.daily lock_is_held 
 root      7841 21.1  2.1 242116 85676 ?        Sl   05:43   5:09 /usr/bin/python3 /usr/bin/unattended-upgrade --downl
-`
+```
 
 Lancer les mises à jour de l'OS
-`
+```
 sudo apt update
 sudo apt -y dist-upgrade 
-`
+```
 
 ### Installation de ROS
 Suivre l'installation de ROS Melodic comme expliqué [ici](http://wiki.ros.org/melodic/Installation/Ubuntu)
